@@ -1,0 +1,248 @@
+/**
+* Accordion SmugMug Product Page Tutorial
+* Version: 1.0
+* Author: Mike Matenkosky
+* Author URI: https://www.imagesinthebackcountry.com
+*/
+
+.nomark:before,
+.checkmark:before,
+.tabs label:after {
+	font-family:			'SmugMug Icon Font Regular';
+	font-size: 				16px;
+	font-weight: 			900;
+	display: 				inline-block;
+	vertical-align: 		middle;
+	-webkit-font-smoothing: antialiased;
+}
+
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tabs > div {
+	width: 100%;
+	border: 1px solid;
+	margin-top: -1px;
+	z-index: 1;
+}
+
+.tabs label {
+	order: 1;
+	display: block;
+	cursor: pointer;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	border: 1px solid;
+	transition: background ease 0.2s;
+	border-left: none;
+	z-index: 2;
+}
+
+.tabs label:first-of-type{
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+}
+
+.tabs label:hover {cursor: pointer;}
+
+.tabs .tab {
+	order: 99;
+	flex-grow: 1;
+	width: 100%;
+	display: none;
+	padding: 1rem;
+}
+
+.tabs input[type="radio"] {display: none;}
+
+.tabs input[type="radio"]:checked + label:hover {cursor: default;}
+
+.tabs input[type="radio"]:checked + label + .tab {display: block;}
+
+/* Product Pages */
+.product-wrapper{
+	display: flex;
+  flex-wrap: wrap;
+}
+
+	.item-wrap {
+		width: 100%;
+		margin-bottom: 1.5rem;
+		padding-bottom: 1.5rem;
+	}
+
+.product-item {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 3rem;
+	padding: 10px;
+	border: 1px solid;
+  box-sizing: border-box;
+}
+
+	.product-item:last-child {margin-bottom: 1.5rem;}
+
+.product-item h3 {margin-bottom:1.5rem;}
+
+.alignleft{float:left; margin-right:1.5rem;}
+.alignright{float:right; margin-left:1.5rem;}
+.aligncenter{display:block; margin:0 auto;}
+
+.image-wrap {max-height:100%; margin:auto;}
+
+/* Print Sizes Page */
+.print-sizes table {
+	border-spacing: 0;
+	margin: 20px 0;
+	padding: 0;
+	width: 100%;
+	font-size: 1rem;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.print-sizes caption {
+	margin: 0 0 6px;
+	font-variant: small-caps;
+	padding: 6px 18px;
+	text-align: center;
+}
+
+.print-sizes th {
+	font-size: 75%;
+	font-family: 'Open Sans',Arial,sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: rgba( 0, 0, 0, 0.1 );
+}
+
+.print-sizes tfoot { border-top: 1px solid; }
+
+.print-sizes td { border: 1px solid; background-color: transparent;}
+
+.print-sizes tr,
+.print-sizes thead { border-bottom: 1px solid; }
+
+	.print-sizes tr:nth-child(even) { background-color: rgba( 0, 0, 0, 0.02 );}
+
+	.print-sizes tr:last-child { border: none; }
+
+.print-sizes th,
+.print-sizes td {
+	text-align: center;
+	padding: 12px 18px;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+}
+
+.checkmark {
+	text-align: center;
+	margin: auto;
+}
+
+	.nomark:before {  content: '\e002'; visibility:hidden;}
+	.checkmark:before {content: '\e02e';}
+
+/* Mobile */
+@media screen and ( max-width: 736px ) {
+
+	.image-wrap {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.image-wrap .alignleft,
+	.image-wrap .alignright	{margin: 0 auto;}
+
+	.print-sizes table {border: 0;}
+
+	.print-sizes table caption {font-size: 1.3em;}
+
+	.print-sizes table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+	.print-sizes table tr {
+		display: block;
+		margin-bottom: .625em;
+	}
+
+	.print-sizes table td {
+		display: block;
+		font-size: .8em;
+		text-align: right;
+	}
+
+	.print-sizes table td::before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+}
+
+@media screen and ( max-width: 1025px ) {
+
+/* You can decrease max-width if you don't have a lot of tabs */
+	.tabs .tab,
+	.tabs label {order: initial;}
+
+	.tabs label {
+		text-align: left;
+		width: 100%;
+		margin-right: 0;
+		margin-top: 0.2rem;
+		border: 1px solid;
+	}
+
+	.tabs label:after{
+		content: '\E033';
+		float:right;
+		margin: -5px 0 0;
+	}
+
+	.tabs input[type="radio"]:checked + label:after {transform:rotate(180deg);}
+
+}
+
+/* Colors */
+.tabs label {color: #858585;}
+
+.tabs label:hover,
+.tabs input:checked + label {color: #555;}
+
+.tabs > div,
+.tabs label,
+.tabs label:first-of-type {border-color: #e3e3e3;}
+
+.product-item {border-color: #e5e5e5;}
+
+.tabs input:checked + label {border-bottom-color: transparent;}
+
+.tabs label {background: #f3f3f3;}
+
+.tabs label:hover {background: #efefef;}
+
+.product-item {background-color: #f7f7f7;}
+
+.image-wrap,
+.tabs .tab,
+.tabs > div,
+.tabs input:checked + label,
+.tabs input[type="radio"]:checked + label {background: #fff;}
+
+.print-sizes tr,
+.print-sizes td { border-color: #f3f3f3; }
+/* End Tabbed SmugMug Product Page */
